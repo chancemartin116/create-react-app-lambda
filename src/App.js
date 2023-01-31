@@ -12,13 +12,13 @@ class LambdaDemo extends Component {
   async handleClick() {
     const supabaseUrl = 'https://umtwwxslxtpghthnwist.supabase.co'
     const supabase = createClient(supabaseUrl, process.env.SUPABASE_KEY)
-    const { data, error } = await supabase.from('greetings').select('greeting')
+    const { data } = await supabase.from('greetings').select('greeting')
     console.log(data)
-    // this.setState({ loading: true })
+    this.setState({ loading: true })
 
-    // fetch("/.netlify/functions/hello")
-    //   .then(response => response.json())
-    //   .then(json => this.setState({ loading: false, msg: json.msg }))
+    fetch("/.netlify/functions/hello")
+      .then(response => response.json())
+      .then(json => this.setState({ loading: false, msg: json.msg }))
   }
 
   render() {
