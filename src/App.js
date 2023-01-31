@@ -11,7 +11,7 @@ class LambdaDemo extends Component {
 
   async handleClick() {
     const supabaseUrl = 'https://umtwwxslxtpghthnwist.supabase.co'
-    const supabase = createClient(supabaseUrl, process.env.SUPABASE_KEY)
+    const supabase = createClient(supabaseUrl, process.env.REACT_APP_SUPABASE_KEY)
     const { data } = await supabase.from('greetings').select('greeting')
     console.log(data)
     this.setState({ loading: true })
